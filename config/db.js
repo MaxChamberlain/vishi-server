@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const connectDB = async() => {
+const connectDB = async() => { 
     try{
         const conn = await mongoose.connect('mongodb+srv://admin:Administrator123@cluster0.q7rfn.mongodb.net/?retryWrites=true&w=majority', {
             useUnifiedTopology: true,
