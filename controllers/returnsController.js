@@ -22,4 +22,20 @@ const insertReturn = async (req, res, next) => {
     }
 }
 
-module.exports = { insertReturn }
+const processReturn = async (req, res, next) => {
+    try{
+        const { order_number } = req.body
+        const item = await Return.updateMany({ order_number }, {status: 'Processed'})
+
+        if(item){
+            res.status(201).send(item)
+        }else{
+            res.status(400).json({text: 'Invalid Order Number'})
+        }
+    }catch(e){
+        res.status(400).json({text: 'An Error Has Occurred. (Error Code: Tiger)'})
+    }
+}
+        
+
+module.exports = { insertReturn, processReturn }

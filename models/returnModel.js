@@ -9,6 +9,11 @@ const returnObject = mongoose.Schema(
         user: {
             type: String,
             required: true
+        },
+        status: {
+            type: String,
+            required: true,
+            default: 'Received'
         }
     },
     {
