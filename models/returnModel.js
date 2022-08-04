@@ -14,6 +14,11 @@ const returnObject = mongoose.Schema(
             type: String,
             required: true,
             default: 'Received'
+        },
+        line_items: {
+            type: Array,
+            required: true,
+            default: []
         }
     },
     {

@@ -9,7 +9,7 @@ const insertReturn = async (req, res, next) => {
 
         const items = await Return.create({
             order_number,
-            user
+            user,
         })
     
         if(items){
@@ -24,8 +24,8 @@ const insertReturn = async (req, res, next) => {
 
 const processReturn = async (req, res, next) => {
     try{
-        const { order_number } = req.body
-        const item = await Return.updateMany({ order_number }, {status: 'Processed'})
+        const { order_number, line_items } = req.body
+        const item = await Return.updateMany({ order_number }, {status: 'Processed', line_items: line_items})
 
         if(item){
             res.status(201).send(item)
