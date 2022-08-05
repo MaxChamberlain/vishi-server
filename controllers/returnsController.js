@@ -38,4 +38,19 @@ const processReturn = async (req, res, next) => {
 }
         
 
-module.exports = { insertReturn, processReturn }
+const getAll = async (req, res, next) => {
+    try{
+        const { order_number, line_items } = req.body
+        const items = await Return.find({ })
+
+        if(items){
+            res.status(201).send(item)
+        }else{
+            res.status(400).json({text: 'Invalid Order Number'})
+        }
+    }catch(e){
+        res.status(400).json({text: 'An Error Has Occurred. (Error Code: Lemur)'})
+    }
+}
+
+module.exports = { insertReturn, processReturn, getAll }

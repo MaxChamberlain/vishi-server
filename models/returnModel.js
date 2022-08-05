@@ -4,7 +4,8 @@ const returnObject = mongoose.Schema(
     {
         order_number: {
             type: String,
-            required: true
+            required: true,
+            unique: true
         },
         user: {
             type: String,
