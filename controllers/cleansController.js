@@ -7,7 +7,7 @@ const insertClean = async (req, res, next) => {
 
         console.log(req.body)
 
-        const items = await Clean.insertOne({
+        const items = await Clean.insert({
             barcode,
             user,
         })
