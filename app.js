@@ -17,6 +17,7 @@ var waveRouter = require('./routes/wave');
 var devicesRouter = require('./routes/devices');
 var incorrectCountRouter = require('./routes/wrongItem');
 var returnsRouter = require('./routes/returns');
+var cleansRouter = require('./routes/cleans');
 
 var corsOptions = {
   origin: '*',
@@ -56,6 +57,7 @@ app.use('/wave', waveRouter);
 app.use('/devices', devicesRouter);
 app.use('/wrongitemcount', incorrectCountRouter);
 app.use('/returns', returnsRouter);
+app.use('/cleans', cleansRouter);
 
 
 // catch 404 and forward to error handler

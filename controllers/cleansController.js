@@ -36,4 +36,4 @@ const getAll = async (req, res, next) => {
     }
 }
 
-module.exports = { insertReturn, processReturn, getAll }
+module.exports = { insertClean, getAll }
