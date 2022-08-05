@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler')
 
 const getItemRequests = async (req, res, next) => {
 
-    const request = await Request.find({$not: {status: 'cleared'}, $not: {status: 'unfound'}})
+    const request = await Request.find()
 
     if(request){
         res.status(201).send(request)
