@@ -5,7 +5,6 @@ const clean = mongoose.Schema(
         barcode: {
             type: String,
             required: true,
-            unique: true
         },
         user: {
             type: String,
