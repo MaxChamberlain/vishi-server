@@ -40,11 +40,16 @@ const processReturn = async (req, res, next) => {
 
 const getAll = async (req, res, next) => {
     try{
-        const { order_number, line_items } = req.body
-        const items = await Return.find({ })
+        const { startDate, endDate } = req.body
+        const items = await Return.find({ 
+            createdAt: {
+                $gte: startDate,
+                $lte: endDate
+            }
+         })
 
         if(items){
-            res.status(201).send(item)
+            res.status(201).send(items)
         }else{
             res.status(400).json({text: 'Invalid Order Number'})
         }
