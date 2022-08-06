@@ -12,6 +12,24 @@ const getItemRequests = async (req, res, next) => {
     }
 }
 
+const getItemRequestsByDate = async (req, res, next) => {
+
+    const { startDate, endDate } = req.body
+
+    const request = await Request.find({ 
+        createdAt: {
+            $gte: startDate,
+            $lte: endDate
+        }
+     })
+
+    if(request){
+        res.status(201).send(request)
+    }else{
+        res.status(400).json({text: 'Unknown Error (Error Code: Dandylion)'})
+    }
+}
+
 const insertItemRequest = async (req, res, next) => {
     try{
         const data = JSON.stringify(req.body)
@@ -165,4 +183,4 @@ const insertNote = async (req, res, next) => {
     }
 }
 
-module.exports = { getItemRequests, insertItemRequest, markItemAsSeen, markItemAsComplete, markItemAsUnfound, deleteItem, insertNote, markItemAsCleared }
+module.exports = { getItemRequests, insertItemRequest, markItemAsSeen, markItemAsComplete, markItemAsUnfound, deleteItem, insertNote, markItemAsCleared, getItemRequestsByDate }
