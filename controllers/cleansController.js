@@ -24,7 +24,15 @@ const insertClean = async (req, res, next) => {
 
 const getAll = async (req, res, next) => {
     try{
-        const items = await Clean.find({ })
+
+        const { stardDate, endDate } = req.body
+
+        const items = await Clean.find({ 
+            createdAt: {
+                $gte: startDate,
+                $lte: endDate
+            }
+         })
 
         if(items){
             res.status(201).send(items)
