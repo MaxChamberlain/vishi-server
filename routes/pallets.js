@@ -5,3 +5,4 @@ const { getPallets } = require('../controllers/palletController')
 router.route('/getall').post(getPallets)
 
 module.exports = router;
+ 
