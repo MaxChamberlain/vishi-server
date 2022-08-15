@@ -24,11 +24,20 @@ const insertClean = async (req, res, next) => {
 
 const getAll = async (req, res, next) => {
     try{
-        const items = await Clean.find({ })
+
+        const { startDate, endDate } = req.body
+
+        const items = await Clean.find({ 
+            createdAt: {
+                $gte: startDate,
+                $lte: endDate
+            }
+         })
 
         if(items){
             res.status(201).send(items)
         }else{
+            console.log('test')
             res.status(400).json({text: 'Invalid Order Number'})
         }
     }catch(e){
