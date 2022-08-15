@@ -18,6 +18,7 @@ var devicesRouter = require('./routes/devices');
 var incorrectCountRouter = require('./routes/wrongItem');
 var returnsRouter = require('./routes/returns');
 var cleansRouter = require('./routes/cleans');
+var palletsRouter = require('./routes/pallets');
 
 var corsOptions = {
   origin: '*',
@@ -58,6 +59,7 @@ app.use('/devices', devicesRouter);
 app.use('/wrongitemcount', incorrectCountRouter);
 app.use('/returns', returnsRouter);
 app.use('/cleans', cleansRouter);
+app.use('/pallets', palletsRouter);
 
 
 // catch 404 and forward to error handler
