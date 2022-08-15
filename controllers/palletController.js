@@ -15,4 +15,13 @@ const getPallets = async (req, res, next) => {
     }
 }
 
-module.exports = { getPallets }
+const insertPallets = async (req, res, next) => {
+    try{
+        await Pallets.updateOne({}, {$set: {items: req.body.pallets}}, {upsert: true})
+        res.status(201).send('Pallets Updated')
+    }catch(e){
+        res.status(400).json({text: 'An Error Has Occurred. (Error Code: Jaguar)'})
+    }
+}
+
+module.exports = { getPallets, insertPallets }
