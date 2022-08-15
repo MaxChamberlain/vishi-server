@@ -1,7 +1,7 @@
 const Pallets = require('../models/palletModel')
 const asyncHandler = require('express-async-handler')
 
-const getItemRequests = async (req, res, next) => {
+const getPallets = async (req, res, next) => {
     try{
         const items = await Pallets.find()
     
