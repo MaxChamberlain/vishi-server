@@ -19,8 +19,8 @@ const getItemRequests = async (req, res, next) => {
 
 const getbyupc = async (req, res, next) => {
     try{
-        const { barcode } = req.body
-        const items = await Item.findOne({ barcode })
+        const { Barcode } = req.body
+        const items = await Item.findOne({ Barcode })
         if(items){
             res.status(201).send(items)
         }else{
