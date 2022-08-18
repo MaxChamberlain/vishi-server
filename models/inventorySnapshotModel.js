@@ -13,6 +13,10 @@ const itemSchema = mongoose.Schema(
         Warehouse: {
             type: String,
             reguired: false
+        },
+        Barcode: {
+            type: String,
+            required: true
         }
     },
     {
