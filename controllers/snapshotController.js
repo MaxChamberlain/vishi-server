@@ -17,4 +17,18 @@ const getItemRequests = async (req, res, next) => {
     }
 }
 
-module.exports = { getItemRequests }
+const getbyupc = async (req, res, next) => {
+    try{
+        const { barcode } = req.body
+        const items = await Item.findOne({ barcode })
+        if(items){
+            res.status(201).send(items)
+        }else{
+            res.status(400).json({text: 'Invalid SKU'})
+        }
+    }catch(e){
+        res.status(400).json({text: 'An Error Has Occurred. (Error Code: Jaguar)'})
+    }
+}
+
+module.exports = { getItemRequests, getbyupc }
