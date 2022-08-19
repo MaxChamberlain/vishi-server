@@ -40,6 +40,11 @@ const requestSchema = mongoose.Schema(
         notes: {
             type: Array,
             required: false
+        },
+        fixer: {
+            type: String,
+            required: false,
+            default: 'None'
         }
     },
     {

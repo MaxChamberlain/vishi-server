@@ -72,10 +72,10 @@ const markItemAsSeen = async (req, res, next) => {
     try{
         const data = JSON.stringify(req.body)
     
-        const { _id } = req.body
+        const { _id, name } = req.body
        
         Request.updateOne({ _id }, 
-            {status: 'seen'}, function (err, docs) {
+            {status: 'seen', fixer: name}, function (err, docs) {
             if (err){
                 console.log(err)
             }
