@@ -24,8 +24,8 @@ const insertReturn = async (req, res, next) => {
 
 const processReturn = async (req, res, next) => {
     try{
-        const { order_number, line_items } = req.body
-        const item = await Return.updateMany({ order_number }, {status: 'Processed', line_items: line_items})
+        const { order_number, line_items, processed_by } = req.body
+        const item = await Return.updateMany({ order_number }, {status: 'Processed', line_items: line_items, processed_by: processed_by})
 
         if(item){
             res.status(201).send(item)

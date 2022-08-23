@@ -20,6 +20,11 @@ const returnObject = mongoose.Schema(
             type: Array,
             required: true,
             default: []
+        },
+        processed_by: {
+            type: String,
+            required: true,
+            default: ''
         }
     },
     {
