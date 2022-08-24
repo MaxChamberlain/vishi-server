@@ -14,28 +14,28 @@ const connectDB = async() => {
         process.exit()
     }
 
-    setInterval(() => get(`
-    query {
-        picks_per_day{
-            request_id
-            complexity
-            data(last: 10){
-                edges{
-                    node{
-                        user_first_name
-                        user_last_name
-                        order_number
-                        sku
-                        quantity
-                        picked_quantity
-                        created_at
-                        id
-                    }
-                }
-            }
-        }
-    }
-    `), 5000)
+    // setInterval(() => get(`
+    // query {
+    //     picks_per_day{
+    //         request_id
+    //         complexity
+    //         data(last: 10){
+    //             edges{
+    //                 node{
+    //                     user_first_name
+    //                     user_last_name
+    //                     order_number
+    //                     sku
+    //                     quantity
+    //                     picked_quantity
+    //                     created_at
+    //                     id
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    // `), 5000)
 }
 
 module.exports = connectDB
