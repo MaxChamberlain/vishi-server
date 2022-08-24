@@ -3,13 +3,13 @@ const asyncHandler = require('express-async-handler')
 
 const insertReturn = async (req, res, next) => {
     try{
-        const { order_number, user } = req.body
+        const { order_number, user, processed_by } = req.body
 
-        console.log(req.body)
 
         const items = await Return.create({
             order_number,
             user,
+            processed_by
         })
     
         if(items){
@@ -18,6 +18,7 @@ const insertReturn = async (req, res, next) => {
             res.status(400).json({text: 'Invalid Order Number'})
         }
     }catch(e){
+        console.log(e)
         res.status(400).json({text: 'An Error Has Occurred. (Error Code: Jaguar)'})
     }
 }
@@ -42,7 +43,7 @@ const getAll = async (req, res, next) => {
     try{
         const { startDate, endDate } = req.body
         const items = await Return.find({ 
-            updatedAt: {
+            createdAt: {
                 $gte: startDate,
                 $lte: endDate
             }

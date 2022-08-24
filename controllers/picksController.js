@@ -50,5 +50,4 @@ const getPicks = async (req, res, next) => {
     }
 }
 
-
 module.exports = { insertPick, getPicks }

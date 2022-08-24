@@ -1,5 +1,6 @@
 const insertPick = require('../controllers/picksController').insertPick
 const axios = require('axios');
+const { addToCredit } = require('../hostData/credits')
 const proxy = 'https://stark-oasis-84035.herokuapp.com/'
 const endpoint = {
     request: 'https://public-api.shiphero.com/graphql', 
@@ -20,7 +21,7 @@ async function get (gQuery){
             data: {query: gQuery}
         });
         const data = await res;
-        // console.log('Complexity:: ' + data.data.data.product.complexity)
+        addToCredit(data.data.data.picks_per_day.complexity, 'Primary Host Server')
         data.data.data.picks_per_day.data.edges.forEach(e => {
             try{
                 insertPick(e.node)
