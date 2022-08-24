@@ -36,14 +36,11 @@ const insertPick = async (req, res, next) => {
 
 const getPicks = async (req, res, next) => {
     try{
-        const { id } = req.params
         const { startDate, endDate } = req.query
-        const start = new Date(startDate)
-        const end = new Date(endDate)
         const picks = await Pick.find({
             created_at: {
-                $gte: start,
-                $lte: end
+                $gte: startDate,
+                $lte: endDate
             }
         })
         res.status(201).send(picks)
