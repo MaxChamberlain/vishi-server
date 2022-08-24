@@ -1,4 +1,4 @@
-const credits = {
+let thisCredits = {
     'Primary Host Server': {
         credit_use: {
             amount: 0,
@@ -8,13 +8,19 @@ const credits = {
 }
 
 const addToCredit = (amount, server) => {
-    credits[server].credit_use.amount += amount
-    credits[server].credit_use.datetime = new Date().toISOString()
-    setTimeout(() => credits[server].credit_use.amount -= amount, 60000)
+    thisCredits[server].credit_use.amount += amount
+    thisCredits[server].credit_use.datetime = new Date().toISOString()
+    setTimeout(() => thisCredits[server].credit_use.amount -= amount, 60000)
 }
 
 const giveCreditReport = (req, res, next) => {
-    res.status(200).send(credits)
+    res.status(200).send(thisCredits)
 }
 
-module.exports = { addToCredit, giveCreditReport }
+const changeCredits = (req, res, next) => {
+    const { credits } = req.body
+    thisCredits = credits
+    res.status(200).send(thisCredits)
+}
+
+module.exports = { addToCredit, giveCreditReport, changeCredits }
