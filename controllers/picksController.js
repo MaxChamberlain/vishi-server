@@ -36,7 +36,7 @@ const insertPick = async (req, res, next) => {
 
 const getPicks = async (req, res, next) => {
     try{
-        const { startDate, endDate } = req.query
+        const { startDate, endDate } = req.body
         const picks = await Pick.find({
             created_at: {
                 $gte: startDate,
