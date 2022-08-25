@@ -63,6 +63,7 @@ app.use('/returns', returnsRouter);
 app.use('/cleans', cleansRouter);
 app.use('/pallets', palletsRouter);
 app.use('/picks', picksRouter);
+app.use('/packs', packsRouter);
 app.use('/credits', creditRouter);
 
 
