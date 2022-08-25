@@ -15,7 +15,7 @@ const insertReturn = async (req, res, next) => {
         if(items){
             res.status(201).send(items)
         }else{
-            res.status(400).json({text: 'Invalid Order Number'})
+            res.status(201).json({text: 'Failed to insert'})
         }
     }catch(e){
         console.log(e)
