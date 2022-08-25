@@ -43,7 +43,7 @@ const getAll = async (req, res, next) => {
     try{
         const { startDate, endDate } = req.body
         const items = await Return.find({ 
-            createdAt: {
+            updatedAt: {
                 $gte: startDate,
                 $lte: endDate
             }
