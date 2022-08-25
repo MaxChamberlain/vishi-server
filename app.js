@@ -20,6 +20,7 @@ var returnsRouter = require('./routes/returns');
 var cleansRouter = require('./routes/cleans');
 var palletsRouter = require('./routes/pallets');
 var picksRouter = require('./routes/picks');
+var packsRouter = require('./routes/packs');
 var creditRouter = require('./routes/credits');
 
 var corsOptions = {
