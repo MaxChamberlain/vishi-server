@@ -22,6 +22,7 @@ var palletsRouter = require('./routes/pallets');
 var picksRouter = require('./routes/picks');
 var packsRouter = require('./routes/packs');
 var creditRouter = require('./routes/credits');
+var packagesRouter = require('./routes/packages');
 
 var corsOptions = {
   origin: '*',
@@ -66,6 +67,7 @@ app.use('/pallets', palletsRouter);
 app.use('/picks', picksRouter);
 app.use('/packs', packsRouter);
 app.use('/credits', creditRouter);
+app.use('/packages', packagesRouter);
 
 
 // catch 404 and forward to error handler
