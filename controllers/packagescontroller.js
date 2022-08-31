@@ -5,7 +5,7 @@ const getPackages = async (req, res, next) => {
     try{
         const { startDate, endDate } = req.body
         const packs = await Package.find({
-            created_at: {
+            created_date: {
                 $gte: startDate,
                 $lte: endDate
             }
