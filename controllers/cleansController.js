@@ -18,6 +18,7 @@ const insertClean = async (req, res, next) => {
             res.status(400).json({text: 'Invalid Order Number'})
         }
     }catch(e){
+        console.log(e)
         res.status(400).json({text: 'An Error Has Occurred. (Error Code: Jaguar)'})
     }
 }
