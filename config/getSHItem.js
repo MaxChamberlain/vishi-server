@@ -38,7 +38,7 @@ async function get (sku){
             `}
         });
         const data = await res;
-        return data
+        return data.data.data.product.data
     }catch(e){
         console.error(e)
     }
