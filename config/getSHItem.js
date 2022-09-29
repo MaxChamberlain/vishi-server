@@ -21,20 +21,32 @@ async function get (sku){
             data: {query: `
             query {
                 product(sku: "${sku}") {
-                  request_id
-                  complexity
-                  data {
-                    name
-                    sku
-                    barcode
-                    warehouse_products {
-                              available
-                              on_hand
-                      inventory_bin
+                    request_id
+                    complexity
+                    data {
+                        name
+                        sku
+                        barcode
+                        warehouse_products{
+                            price
+                            on_hand
+                            available
+                            allocated
+                            locations{
+                                edges{
+                                    node{
+                                        location{
+                                            name
+                                            pickable
+                                            sellable
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
-                  }
                 }
-              }
+            }
             `}
         });
         const data = await res;
