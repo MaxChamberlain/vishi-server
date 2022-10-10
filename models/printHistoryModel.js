@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const fixSchema = mongoose.Schema(
+const printSchema = mongoose.Schema(
     {
         printed_by: {
             type: String,
@@ -20,6 +20,6 @@ const fixSchema = mongoose.Schema(
     }
 )
 
-const Fix = mongoose.model('Fix', fixSchema)
+const Print = mongoose.model('Fix', printSchema)
 
-module.exports = Fix
+module.exports = Print
