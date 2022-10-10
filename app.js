@@ -25,6 +25,7 @@ var creditRouter = require('./routes/credits');
 var packagesRouter = require('./routes/packages');
 var zoneRouter = require('./routes/zones');
 var shipheroRouter = require('./routes/shipheroItem');
+var printHistoryRouter = require('./routes/printHistory');
 
 var corsOptions = {
   origin: '*',
@@ -72,6 +73,7 @@ app.use('/credits', creditRouter);
 app.use('/packages', packagesRouter);
 app.use('/zones', zoneRouter);
 app.use('/shipheroitem', shipheroRouter);
+app.use('/printhistory', printHistoryRouter);
 
 
 // catch 404 and forward to error handler
