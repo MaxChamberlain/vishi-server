@@ -2,7 +2,8 @@ const Print = require('../models/printHistoryModel');
 
 const getPrints = async (req, res, next) => {
     try{
-        const prints = await Print.find() 
+        const { print_sku } = req.body
+        const prints = await Print.find({ print_sku }) 
     
         if(prints){
             res.status(201).send(prints)

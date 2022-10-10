@@ -20,6 +20,6 @@ const printSchema = mongoose.Schema(
     }
 )
 
-const Print = mongoose.model('Fix', printSchema)
+const Print = mongoose.model('Print', printSchema)
 
 module.exports = Print
