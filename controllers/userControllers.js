@@ -166,10 +166,10 @@ const setUserVersion = async (req, res, next) => {
                 console.log(err)
             }
             else{
+                res.status(201).json({text: 'User Version Updated'})
                 console.log("Updated Docs : ", docs);
             }
         })
-        res.status(201).json({text: 'User Version Updated'})
     }catch(e){
         console.log(e)
         res.status(400).json({text: 'An Error Has Occurred. (Error Code: Partisan)'})
