@@ -161,14 +161,7 @@ const updateRoles = async (req, res, next) => {
 const setUserVersion = async (req, res, next) => {
     try{
         const { _id, version } = req.body
-        await User.updateOne({ _id }, { version }, function (err, docs) {
-            if (err){
-                console.log(err)
-            }
-            else{
-                console.log("Updated Docs : ", docs);
-            }
-        })
+        await User.updateOne({ _id }, { version })
         const user = await User.findOne({ _id })
         res.status(201).send(user)
     }catch(e){
