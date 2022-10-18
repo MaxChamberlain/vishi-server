@@ -4,7 +4,6 @@ const asyncHandler = require('express-async-handler')
 const getItemRequests = async (req, res, next) => {
     try{
         const { sku } = req.body
-    
         const items = await Item.find({SKU: {$regex: sku}})
     
         if(items){
@@ -13,6 +12,7 @@ const getItemRequests = async (req, res, next) => {
             res.status(400).json({text: 'Invalid SKU'})
         }
     }catch(e){
+        console.log(e)
         res.status(400).json({text: 'An Error Has Occurred. (Error Code: Jaguar)'})
     }
 }

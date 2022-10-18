@@ -44,6 +44,9 @@ const userSchema = mongoose.Schema(
             reguired: false,
             default: ['Warehouse Restocks', 'Warehouse Fixes', 'Customer Service Requests']
         },
+        version: {
+            type: String,
+        }
     },
     {
         timestamps: true

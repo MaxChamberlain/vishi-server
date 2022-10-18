@@ -158,4 +158,22 @@ const updateRoles = async (req, res, next) => {
     }
 }
 
-module.exports = { registerUser, authUser, getUserRoles, getUsersInCompany, approveUser, denyUser, updateRoles }
+const setUserVersion = async (req, res, next) => {
+    try{
+        const { _id, version } = req.body
+        await User.findOneAndUpdate({ _id }, { version }, function (err, docs) {
+            if (err){
+                console.log(err)
+            }
+            else{
+                console.log("Updated Docs : ", docs);
+            }
+        })
+        res.status(201).json({text: 'User Version Updated'})
+    }catch(e){
+        res.status(400).json({text: 'An Error Has Occurred. (Error Code: Partisan)'})
+    }
+}
+
+
+module.exports = { registerUser, authUser, getUserRoles, getUsersInCompany, approveUser, denyUser, updateRoles, setUserVersion }
