@@ -32,4 +32,25 @@ const getbyupc = async (req, res, next) => {
     }
 }
 
-module.exports = { getItemRequests, getbyupc }
+const addItem = async (req, res, next) => {
+    try{
+        const { SKU, Name, Warehouse, Price, Barcode } = req.body
+        const item = await Item.create({
+            SKU,
+            Name,
+            Warehouse,
+            Price,
+            Barcode,
+        })
+        if(item){
+            res.status(201).json({text: 'Item Added'})
+        }else{
+            res.status(400).json({text: 'An Error Has Occurred. (Error Code: Jaguar)'})
+        }
+    }catch(e){
+        console.log(e)
+        res.status(400).json({text: 'An Error Has Occurred. (Error Code: Jaguar)'})
+    }
+}
+
+module.exports = { getItemRequests, getbyupc, addItem }
