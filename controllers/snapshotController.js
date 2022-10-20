@@ -53,4 +53,18 @@ const addItem = async (req, res, next) => {
     }
 }
 
-module.exports = { getItemRequests, getbyupc, addItem }
+const updateItem = async (req, res, next) => {
+    try{
+        const { Barcode, Price } = req.body
+        const items = await Item.findOneAndUpdate({ Barcode: (Barcode) }, { Price: Price })
+        if(items){
+            res.status(201).send(items)
+        }else{
+            res.status(400).json({text: 'Invalid SKU'})
+        }
+    }catch(e){
+        res.status(400).json({text: 'An Error Has Occurred. (Error Code: Jaguar)'})
+    }
+}
+
+module.exports = { getItemRequests, getbyupc, addItem, updateItem }
