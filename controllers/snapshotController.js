@@ -56,7 +56,9 @@ const addItem = async (req, res, next) => {
 const updateItem = async (req, res, next) => {
     try{
         const { Barcode, Price } = req.body
-        const items = await Item.findOneAndUpdate({ Barcode: (Barcode) }, { Price: Price })
+        await Item.updateOne({ Barcode: (Barcode) }, { Price: Price })
+        const items = await Item.findOne({ Barcode: (Barcode) })
+        console.log(items)
         if(items){
             res.status(201).send(items)
         }else{

@@ -17,6 +17,10 @@ const itemSchema = mongoose.Schema(
         Barcode: {
             type: String,
             required: true
+        },
+        Price: {
+            type: String,
+            required: false
         }
     },
     {
